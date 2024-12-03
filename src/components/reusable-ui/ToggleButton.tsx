@@ -1,13 +1,13 @@
-import React from "react"
 import styled from "styled-components"
 import { theme } from "../../theme"
+import { ToggleButtonType } from "../../types/components"
 
 export default function ToggleButton({
   isChecked,
   onToggle,
   labelIfChecked = "Fermer",
   labelIfUnchecked = "Ouvrir",
-}) {
+} : ToggleButtonType ) {
   return (
     <ToggleButtonStyled>
       <input
