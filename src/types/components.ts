@@ -63,3 +63,5 @@ export type PropsLogo = {
     className : string,
     onClick: (e: React.MouseEvent<HTMLElement>) => void,
 }
+
+export type PropsHeader = {children: JSX.Element | string}
