@@ -47,6 +47,13 @@ export type PropsSelectInput = {
     Icon?: ReactNode, 
     className?: string,
   } & ComponentPropsWithoutRef<"select">
+  
   export interface SelectInputStyledInterface {
     value?: string,
+}
+
+//ribbon
+export type PropsRibbon = { 
+    label: string | "new", 
+    className : string
 }

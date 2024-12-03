@@ -1,7 +1,8 @@
 import styled from "styled-components"
 import { theme } from "../../theme"
+import { PropsRibbon } from "../../types/components"
 
-export default function Ribbon({ label = "new", className }) {
+export default function Ribbon({ label = "new", className }: PropsRibbon ) {
   return (
     <RibbonStyled className={className}>
       <div className="ribbon ribbon-top-left">
