@@ -64,9 +64,25 @@ export type PropsLogo = {
     onClick: (e: React.MouseEvent<HTMLElement>) => void,
 }
 
+//Header
 export type PropsHeader = {children: JSX.Element | string}
 
+//CasinoEffect 
 export type PropsCasinoEffect = { 
     count: string | number, 
     className: string 
+}
+
+//Button
+export type PropsButton = { 
+    label: string, 
+    Icon: ReactNode , 
+    className: string, 
+    version?: "normal" | "success", 
+    onClick: (e: React.MouseEvent<HTMLButtonElement>), 
+    disabled: boolean 
+}
+export interface ButtonStyledInterface {
+    className: string, 
+    version: "normal" | "success", 
 }
