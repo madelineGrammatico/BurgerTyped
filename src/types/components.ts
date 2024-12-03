@@ -31,3 +31,9 @@ export type TabType = {
     className: string,
     Icon: JSX.Element
 } 
+
+//sticker
+export type StickerType = {
+    label: string, 
+    className: string,
+} 
