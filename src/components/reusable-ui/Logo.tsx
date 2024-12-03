@@ -1,7 +1,8 @@
 import styled from "styled-components"
 import { theme } from "../../theme"
+import { PropsLogo } from "../../types/components"
 
-export default function Logo({ className, onClick }) {
+export default function Logo({ className, onClick }: PropsLogo) {
   return (
     <LogoStyled className={className} onClick={onClick}>
       <h1>CRAZEE</h1>

@@ -47,7 +47,7 @@ export type PropsSelectInput = {
     Icon?: ReactNode, 
     className?: string,
   } & ComponentPropsWithoutRef<"select">
-  
+
   export interface SelectInputStyledInterface {
     value?: string,
 }
@@ -56,4 +56,10 @@ export type PropsSelectInput = {
 export type PropsRibbon = { 
     label: string | "new", 
     className : string
+}
+
+//logo
+export type PropsLogo = { 
+    className : string,
+    onClick: (e: React.MouseEvent<HTMLElement>) => void,
 }
