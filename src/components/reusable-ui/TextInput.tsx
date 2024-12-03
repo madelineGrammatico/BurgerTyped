@@ -1,12 +1,29 @@
-import React from "react"
+import React, { ComponentPropsWithRef } from "react"
 import styled, { css } from "styled-components"
 import { theme } from "../../theme"
+import { TextInputStyledInterface } from "../../types/components"
+import { IconType } from "react-icons"
+// import { PropsTextInput } from "../../types/components"
 
-const TextInput = React.forwardRef(
-  ({ onChange, Icon, className, version = "normal", ...extraProps }, ref) => {
+
+export type PropsTextInput = {
+  value?: string | number,
+  onChange : (e: React.ChangeEvent<HTMLInputElement>) => void,
+  Icon?: IconType | React.ComponentType<React.SVGProps<SVGSVGElement>>, 
+  className?: string,
+  version?: "normal" | "minimalist",
+} & ComponentPropsWithRef<"input">
+
+const TextInput = React.forwardRef<HTMLInputElement, PropsTextInput>(
+  ({ onChange,
+     Icon, 
+     className, 
+     version = "normal", 
+     ...extraProps 
+  } : PropsTextInput , ref) => {
     return (
       <TextInputStyled className={className} version={version}>
-        <div className="icon">{Icon && Icon}</div>
+        {Icon && <div className="icon"><Icon /></div>}
         <input ref={ref} onChange={onChange} type="text" {...extraProps} />
       </TextInputStyled>
     )
@@ -14,7 +31,7 @@ const TextInput = React.forwardRef(
 )
 
 export default TextInput
-const TextInputStyled = styled.div`
+const TextInputStyled = styled.div<TextInputStyledInterface>`
   border-radius: ${theme.borderRadius.round};
   display: flex;
   align-items: center;
