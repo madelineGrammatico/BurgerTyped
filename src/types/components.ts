@@ -1,4 +1,4 @@
-import { ComponentPropsWithRef } from "react"
+import { ComponentPropsWithoutRef, ComponentPropsWithRef, ReactNode } from "react"
 import { IconType } from "react-icons"
 
 //Reusable-ui
@@ -37,3 +37,16 @@ export type StickerType = {
     label: string, 
     className: string,
 } 
+
+//selectInput
+export type PropsSelectInput = {
+    options: {optionValue: string, label: "Sans pub" | "Avec pub", selected: boolean}[],
+    value?: string,
+    name: string,
+    onChange : React.ChangeEventHandler<HTMLSelectElement>,
+    Icon?: ReactNode, 
+    className?: string,
+  } & ComponentPropsWithoutRef<"select">
+  export interface SelectInputStyledInterface {
+    value?: string,
+}
