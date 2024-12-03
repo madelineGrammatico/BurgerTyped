@@ -1,18 +1,22 @@
-import React, { ComponentPropsWithRef } from "react"
+import React, { ComponentPropsWithRef, ReactNode } from "react"
 import styled, { css } from "styled-components"
 import { theme } from "../../theme"
-import { TextInputStyledInterface } from "../../types/components"
+// import { TextInputStyledInterface } from "../../types/components"
 import { IconType } from "react-icons"
 // import { PropsTextInput } from "../../types/components"
-
-
+type TextInputVersion =  "normal" | "minimalist"
 export type PropsTextInput = {
-  value?: string | number,
-  onChange : (e: React.ChangeEvent<HTMLInputElement>) => void,
-  Icon?: IconType | React.ComponentType<React.SVGProps<SVGSVGElement>>, 
-  className?: string,
-  version?: "normal" | "minimalist",
-} & ComponentPropsWithRef<"input">
+    value?: string | number,
+    onChange : (e: React.ChangeEvent<HTMLInputElement>) => void,
+    Icon?: ReactNode, 
+    className?: string,
+    version?: TextInputVersion ,
+  } & ComponentPropsWithRef<"input">
+
+  export interface TextInputStyledInterface {
+    version: TextInputVersion ,
+  }
+  
 
 const TextInput = React.forwardRef<HTMLInputElement, PropsTextInput>(
   ({ onChange,
@@ -20,10 +24,10 @@ const TextInput = React.forwardRef<HTMLInputElement, PropsTextInput>(
      className, 
      version = "normal", 
      ...extraProps 
-  } : PropsTextInput , ref) => {
+  } , ref) => {
     return (
       <TextInputStyled className={className} version={version}>
-        {Icon && <div className="icon"><Icon /></div>}
+        <div className="icon">{Icon && Icon}</div>
         <input ref={ref} onChange={onChange} type="text" {...extraProps} />
       </TextInputStyled>
     )
