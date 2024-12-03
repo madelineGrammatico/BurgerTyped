@@ -23,3 +23,11 @@ export type ToggleButtonType = {
     labelIfChecked: string |"Fermer",
     labelIfUnchecked: string | "Ouvrir",
   }
+
+//tab
+export type TabType = {
+    onClick: (e: React.MouseEvent<HTMLButtonElement>) => void, 
+    label: string, 
+    className: string,
+    Icon: JSX.Element
+} 
