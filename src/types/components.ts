@@ -65,3 +65,8 @@ export type PropsLogo = {
 }
 
 export type PropsHeader = {children: JSX.Element | string}
+
+export type PropsCasinoEffect = { 
+    count: string | number, 
+    className: string 
+}

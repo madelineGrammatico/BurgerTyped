@@ -1,7 +1,6 @@
 
 import styled from "styled-components"
 import { theme } from "../../theme"
-import { ComponentPropsWithoutRef, ReactNode } from "react"
 import { PropsSelectInput, SelectInputStyledInterface} from "../../types/components"
 
 export default function SelectInput({
