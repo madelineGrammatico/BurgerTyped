@@ -76,13 +76,34 @@ export type PropsCasinoEffect = {
 //Button
 export type PropsButton = { 
     label: string, 
-    Icon: ReactNode , 
+    Icon?: ReactNode , 
     className: string, 
     version?: "normal" | "success", 
-    onClick: (e: React.MouseEvent<HTMLButtonElement>), 
+    onClick: (e: React.MouseEvent<HTMLButtonElement>) => void, 
     disabled: boolean 
 }
 export interface ButtonStyledInterface {
     className: string, 
     version: "normal" | "success", 
+}
+ 
+// card
+export type PropsCard = {
+    title: string,
+    imageSource: string,
+    leftDescription: string,
+    hasDeleteButton: boolean,
+    onDelete: (e: React.MouseEvent<HTMLElement>) => void,
+    onClick: (e: React.MouseEvent<HTMLDivElement>) => void,
+    isHoverable: boolean,
+    isSelected: boolean,
+    onAdd:  (e: React.MouseEvent<HTMLButtonElement>) => void,
+    overlapImageSource: string,
+    isOverlapImageVisible: boolean,
+  }
+
+export interface CardStyledInterface {
+    // onClick: (e: React.MouseEvent<HTMLDivElement>) => void,
+    isHoverable: boolean,
+    isSelected: boolean,
 }
