@@ -5,7 +5,7 @@ import { IoChevronForward } from "react-icons/io5"
 import { BsPersonCircle } from "react-icons/bs"
 import TextInput from "../../reusable-ui/TextInput"
 import Button from "../../reusable-ui/Button"
-import { theme } from "../../../theme"
+import { theme } from "../../../theme/theme"
 import { authenticateUser } from "../../../api/user"
 import Welcome from "./Welcome"
 

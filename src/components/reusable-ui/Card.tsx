@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components"
-import { theme } from "../../theme"
+import { theme } from "../../theme/theme"
 import Button from "./Button"
 import { TiDelete } from "react-icons/ti"
 import { fadeInFromRight, fadeInFromTop } from "../../theme/animations"

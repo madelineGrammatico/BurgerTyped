@@ -1,6 +1,6 @@
 import React, { ComponentPropsWithRef, ReactNode } from "react"
 import styled, { css } from "styled-components"
-import { theme } from "../../theme"
+import { theme } from "../../theme/theme"
 // import { TextInputStyledInterface } from "../../types/components"
 import { IconType } from "react-icons"
 // import { PropsTextInput } from "../../types/components"

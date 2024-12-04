@@ -1,7 +1,7 @@
 import React from "react"
 import{TabType} from "../../types/components"
 import styled from "styled-components"
-import { theme } from "../../theme"
+import { theme } from "../../theme/theme"
 
 export default function Tab({ label, Icon, onClick, className } : TabType) {
   return (
