@@ -19,23 +19,23 @@ export type PropsTextInput = {
 //navBar
 export type ToggleButtonType = {
     isChecked: boolean,
-    onToggle: ()=> void,
-    labelIfChecked: string |"Fermer",
-    labelIfUnchecked: string | "Ouvrir",
+    onToggle?: (e: React.ChangeEventHandler<HTMLInputElement>)=> void,
+    labelIfChecked?: string,
+    labelIfUnchecked?: string,
   }
 
 //tab
 export type TabType = {
-    onClick: (e: React.MouseEvent<HTMLButtonElement>) => void, 
-    label: string, 
-    className: string,
-    Icon: JSX.Element
+    onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void, 
+    label?: string, 
+    className?: string,
+    Icon: IconType
 } 
 
 //sticker
 export type StickerType = {
-    label: string, 
-    className: string,
+    label?: string, 
+    className?: string,
 } 
 
 //selectInput
@@ -54,18 +54,19 @@ export type PropsSelectInput = {
 
 //ribbon
 export type PropsRibbon = { 
-    label: string | "new", 
-    className : string
+    label?: string, 
+    className? : string
 }
 
 //logo
 export type PropsLogo = { 
-    className : string,
-    onClick: (e: React.MouseEvent<HTMLElement>) => void,
+    className?: string,
+    onClick?: (e: React.MouseEvent<HTMLDivElement>) => void,
 }
 
 //Header
-export type PropsHeader = {children: JSX.Element | string}
+export type PropsHeader = {children: ReactNode}
+// export type PropsHeader = PropsWithChildern
 
 //CasinoEffect 
 export type PropsCasinoEffect = { 
