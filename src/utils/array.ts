@@ -1,19 +1,8 @@
-export type ProductType = {
-  id: string,
-  imageSource: string,
-  title: string,
-  price: number,
-  quantity: number,
-  isAvailable: boolean,
-  isAdvertised: boolean,
-}
-export type ProductsType = ProductType[]
-
 export const deepClone = (array: object) => {
   return JSON.parse(JSON.stringify(array))
 }
 
-//
+// utilise un type generique qui utilise l'inférence
 export const findObjectById = <T extends {id: string}>(
   id: string,
   array: T[]
@@ -21,6 +10,7 @@ export const findObjectById = <T extends {id: string}>(
   return array.find((itemInArray) => itemInArray.id === id)
 }
 
+//sans utiliser de generique et sans inférence avec unknown et Record
 export const findIndexById = (
   idWithUnknowwIndex: string, 
   array: ({id: string} & Record<string, unknown>)[]

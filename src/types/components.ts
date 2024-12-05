@@ -19,7 +19,7 @@ export type PropsTextInput = {
 //navBar
 export type ToggleButtonType = {
     isChecked: boolean,
-    onToggle?: (e: React.ChangeEventHandler<HTMLInputElement>)=> void,
+    onToggle?: (e: React.ChangeEvent<HTMLInputElement>)=> void,
     labelIfChecked?: string,
     labelIfUnchecked?: string,
   }
