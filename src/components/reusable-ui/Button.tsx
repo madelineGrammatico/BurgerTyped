@@ -1,7 +1,14 @@
 import styled, { css } from "styled-components"
-import { theme } from "../../theme"
+import { theme } from "../../theme/theme"
+import { ButtonStyledInterface, PropsButton } from "../../types/components"
 
-export default function Button({ label, Icon, className, version = "normal", onClick, disabled }) {
+export default function Button({ 
+  label, 
+  Icon, 
+  className, 
+  version = "normal", 
+  onClick, 
+  disabled }: PropsButton ) {
   return (
     <ButtonStyled className={className} version={version} onClick={onClick} disabled={disabled}>
       <span>{label}</span>
@@ -10,7 +17,7 @@ export default function Button({ label, Icon, className, version = "normal", onC
   )
 }
 
-const ButtonStyled = styled.button`
+const ButtonStyled = styled.button<ButtonStyledInterface>`
   ${({ version }) => extraStyle[version]};
 `
 

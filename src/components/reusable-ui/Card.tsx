@@ -1,8 +1,9 @@
 import styled, { css } from "styled-components"
-import { theme } from "../../theme"
+import { theme } from "../../theme/theme"
 import Button from "./Button"
 import { TiDelete } from "react-icons/ti"
 import { fadeInFromRight, fadeInFromTop } from "../../theme/animations"
+import { CardStyledInterface, PropsCard } from "../../types/components"
 
 export default function Card({
   title,
@@ -16,7 +17,7 @@ export default function Card({
   onAdd,
   overlapImageSource,
   isOverlapImageVisible,
-}) {
+}: PropsCard) {
   // state (vide)
 
   // comportements (vide)
@@ -65,7 +66,7 @@ export default function Card({
   )
 }
 
-const CardStyled = styled.div`
+const CardStyled = styled.div<CardStyledInterface>`
   ${({ isHoverable }) => isHoverable && hoverableStyle}
   border-radius: ${theme.borderRadius.extraRound};
   /* border: 1px solid red; */

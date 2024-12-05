@@ -1,9 +1,30 @@
-import React from "react"
+import React, { ComponentPropsWithRef, ReactNode } from "react"
 import styled, { css } from "styled-components"
-import { theme } from "../../theme"
+import { theme } from "../../theme/theme"
+// import { TextInputStyledInterface } from "../../types/components"
+import { IconType } from "react-icons"
+// import { PropsTextInput } from "../../types/components"
+type TextInputVersion =  "normal" | "minimalist"
+export type PropsTextInput = {
+    value?: string | number,
+    onChange : (e: React.ChangeEvent<HTMLInputElement>) => void,
+    Icon?: ReactNode, 
+    className?: string,
+    version?: TextInputVersion ,
+  } & ComponentPropsWithRef<"input">
 
-const TextInput = React.forwardRef(
-  ({ onChange, Icon, className, version = "normal", ...extraProps }, ref) => {
+  export interface TextInputStyledInterface {
+    version: TextInputVersion ,
+  }
+  
+
+const TextInput = React.forwardRef<HTMLInputElement, PropsTextInput>(
+  ({ onChange,
+     Icon, 
+     className, 
+     version = "normal", 
+     ...extraProps 
+  } , ref) => {
     return (
       <TextInputStyled className={className} version={version}>
         <div className="icon">{Icon && Icon}</div>
@@ -14,7 +35,7 @@ const TextInput = React.forwardRef(
 )
 
 export default TextInput
-const TextInputStyled = styled.div`
+const TextInputStyled = styled.div<TextInputStyledInterface>`
   border-radius: ${theme.borderRadius.round};
   display: flex;
   align-items: center;
