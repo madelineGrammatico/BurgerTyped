@@ -1,14 +1,11 @@
-import { ComponentPropsWithoutRef, ComponentPropsWithRef, ReactNode } from "react"
+import { ComponentProps, ComponentPropsWithoutRef, ComponentPropsWithRef, ReactNode } from "react"
 import { IconType } from "react-icons"
 
 //Reusable-ui
 //TextInput 
 type TextInputVersion =  "normal" | "minimalist"
 export type PropsTextInput = {
-    value?: string | number,
-    onChange : (e: React.ChangeEvent<HTMLInputElement>) => void,
-    Icon?: IconType | React.ComponentType<React.SVGProps<SVGSVGElement>>, 
-    className?: string,
+    Icon?: ReactNode, 
     version?: TextInputVersion ,
   } & ComponentPropsWithRef<"input">
 
@@ -39,14 +36,14 @@ export type StickerType = {
 } 
 
 //selectInput
+type Option = {
+    optionValue?: string | number | readonly string[], 
+    label: string,
+}
 export type PropsSelectInput = {
-    options: {optionValue: string, label: "Sans pub" | "Avec pub", selected: boolean}[],
-    value?: string,
-    name: string,
-    onChange : React.ChangeEventHandler<HTMLSelectElement>,
+    options: Option[],
     Icon?: ReactNode, 
-    className?: string,
-  } & ComponentPropsWithoutRef<"select">
+} & ComponentPropsWithoutRef<"select">
 
   export interface SelectInputStyledInterface {
     value?: string,
@@ -64,47 +61,45 @@ export type PropsLogo = {
     onClick?: (e: React.MouseEvent<HTMLDivElement>) => void,
 }
 
-//Header
+//Header,
 export type PropsHeader = {children: ReactNode}
 // export type PropsHeader = PropsWithChildern
 
 //CasinoEffect 
 export type PropsCasinoEffect = { 
-    count: string | number, 
-    className: string 
+    count: string, 
+    className?: string 
 }
 
 //Button
+type ButtonVersion = "normal" | "success"
 export type PropsButton = { 
     label: string, 
-    Icon?: ReactNode , 
-    className: string, 
-    version?: "normal" | "success", 
-    onClick: (e: React.MouseEvent<HTMLButtonElement>) => void, 
-    disabled: boolean 
-}
+    Icon?: JSX.Element ,
+    version?: ButtonVersion,
+} & ComponentProps<"button">
+
 export interface ButtonStyledInterface {
     className: string, 
-    version: "normal" | "success", 
+    version: ButtonVersion, 
 }
  
 // card
 export type PropsCard = {
-    title: string,
-    imageSource: string,
-    leftDescription: string,
-    hasDeleteButton: boolean,
-    onDelete: (e: React.MouseEvent<HTMLElement>) => void,
-    onClick: (e: React.MouseEvent<HTMLDivElement>) => void,
-    isHoverable: boolean,
-    isSelected: boolean,
-    onAdd:  (e: React.MouseEvent<HTMLButtonElement>) => void,
-    overlapImageSource: string,
-    isOverlapImageVisible: boolean,
+    title?: string,
+    imageSource?: string,
+    leftDescription?: string,
+    hasDeleteButton?: boolean,
+    onDelete?: (e: React.MouseEvent<HTMLButtonElement>) => void,
+    onClick?: (e: React.MouseEvent<HTMLDivElement>) => void,
+    isHoverable?: boolean,
+    isSelected?: boolean,
+    onAdd?:  (e: React.MouseEvent<HTMLButtonElement>) => void,
+    overlapImageSource?: string,
+    isOverlapImageVisible?: boolean,
   }
 
 export interface CardStyledInterface {
-    // onClick: (e: React.MouseEvent<HTMLDivElement>) => void,
-    isHoverable: boolean,
-    isSelected: boolean,
+    isHoverable?: boolean,
+    isSelected?: boolean,
 }

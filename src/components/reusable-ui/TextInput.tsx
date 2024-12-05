@@ -1,21 +1,8 @@
-import React, { ComponentPropsWithRef, ReactNode } from "react"
+import React from "react"
 import styled, { css } from "styled-components"
 import { theme } from "../../theme/theme"
-// import { TextInputStyledInterface } from "../../types/components"
-import { IconType } from "react-icons"
-// import { PropsTextInput } from "../../types/components"
-type TextInputVersion =  "normal" | "minimalist"
-export type PropsTextInput = {
-    value?: string | number,
-    onChange : (e: React.ChangeEvent<HTMLInputElement>) => void,
-    Icon?: ReactNode, 
-    className?: string,
-    version?: TextInputVersion ,
-  } & ComponentPropsWithRef<"input">
-
-  export interface TextInputStyledInterface {
-    version: TextInputVersion ,
-  }
+import { TextInputStyledInterface } from "../../types/components"
+import { PropsTextInput } from "../../types/components"
   
 
 const TextInput = React.forwardRef<HTMLInputElement, PropsTextInput>(
@@ -92,7 +79,7 @@ const extraStyleMinimalist = css`
     }
   }
 `
-
+// type versionAutorisées = keyof typeof extraStyle
 const extraStyle = {
   normal: extraStyleNormal,
   minimalist: extraStyleMinimalist,
