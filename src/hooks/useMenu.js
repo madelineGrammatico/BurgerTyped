@@ -5,7 +5,7 @@ import { syncBothMenus } from "../api/product"
 
 export const useMenu = () => {
   const [menu, setMenu] = useState()
-
+  console.log("menu", menu)
   // comportements (gestionnaire de state ou "state handlers")
   const handleAdd = (newProduct, username) => {
     // 1. copie du tableau
