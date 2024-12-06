@@ -6,7 +6,7 @@ import { theme } from "../../theme/theme"
 export default function Tab({ label, Icon, onClick, className } : TabType) {
   return (
     <TabStyled onClick={onClick} className={className}>
-      <div className="icon"><Icon/></div>
+      <div className="icon">{Icon}</div>
       {label && <span className="label">{label}</span>}
     </TabStyled>
   )
