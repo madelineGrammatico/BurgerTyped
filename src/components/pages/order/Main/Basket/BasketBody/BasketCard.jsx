@@ -1,7 +1,7 @@
 import React from "react"
 import styled, { css } from "styled-components"
 import { MdDeleteForever } from "react-icons/md"
-import { theme } from "../../../../../../theme/theme"
+import { theme } from "../../../../../../theme"
 import CasinoEffect from "../../../../../reusable-ui/CasinoEffect"
 import Sticker from "../../../../../reusable-ui/Sticker"
 

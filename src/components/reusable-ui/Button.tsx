@@ -10,7 +10,11 @@ export default function Button({
   onClick, 
   disabled }: PropsButton ) {
   return (
-    <ButtonStyled className={className} version={version} onClick={onClick} disabled={disabled}>
+    <ButtonStyled 
+      className={className? className :""}
+      version={version} 
+      onClick={onClick} 
+      disabled={disabled}>
       <span>{label}</span>
       <div className="icon">{Icon && Icon}</div>
     </ButtonStyled>
