@@ -26,7 +26,7 @@ export type TabType = {
     onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void, 
     label?: string, 
     className?: string,
-    Icon: IconType
+    Icon: JSX.Element
 } 
 
 //sticker

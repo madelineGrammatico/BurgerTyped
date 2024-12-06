@@ -12,7 +12,6 @@ export default function SelectInput({
   onChange,
   ...restProps
 }: PropsSelectInput) {
-  console.log(options)
   return (
     <SelectInputStyled className={className}>
       {Icon && <div className="icon">{Icon}</div>}
