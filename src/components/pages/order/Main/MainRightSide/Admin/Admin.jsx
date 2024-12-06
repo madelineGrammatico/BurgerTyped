@@ -4,7 +4,7 @@ import OrderContext from "../../../../../../context/OrderContext"
 import AdminPanel from "./AdminPanel/AdminPanel"
 import AdminTabs from "./AdminTabs"
 import { fadeInFromBottom } from "../../../../../../theme/animations"
-import { theme } from "../../../../../../theme/theme"
+import { theme } from "../../../../../../theme"
 
 export default function Admin() {
   const { isCollapsed } = useContext(OrderContext)
