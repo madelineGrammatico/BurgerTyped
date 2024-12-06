@@ -7,8 +7,7 @@ export const setLocalStorage = <T>(
   localStorage.setItem(key, JSON.stringify(value))
 }
 
-export const getLocalStorage = (key: string): ( string | undefined ) => {
+export const getLocalStorage = (key: string): unknown | null=> {
   const item = localStorage.getItem(key)
-  if (item === null) return
-  return JSON.parse(item)
+  return item ? JSON.parse(item): null
 }
