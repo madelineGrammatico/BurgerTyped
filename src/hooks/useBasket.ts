@@ -5,7 +5,7 @@ import { setLocalStorage } from "../utils/window"
 import { BasketProductType, BasketType } from "../types/commons"
 
 export const useBasket = () => {
-  const [basket, setBasket] = useState([])
+  const [basket, setBasket] = useState<BasketType>([])
   console.log("basket", basket)
   const handleAddToBasket = (idProductToAdd: string, username: string) => {
     const basketCopy = deepClone(basket)
@@ -27,7 +27,7 @@ export const useBasket = () => {
     setLocalStorage(username, basketCopy)
   }
 
-  const createNewBasketProduct = (idProductToAdd: string, basketCopy, setBasket, username: string) => {
+  const createNewBasketProduct = (idProductToAdd: string, basketCopy: BasketType, setBasket: React.Dispatch<React.SetStateAction<BasketType>>, username: string) => {
     // we do not re-create a whole product, we only add the extra info a basket product has in comparison to a menu product
     const newBasketProduct = { id: idProductToAdd, quantity: 1 }
     const newBasket = [newBasketProduct, ...basketCopy]
