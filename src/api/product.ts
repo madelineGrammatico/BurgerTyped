@@ -12,7 +12,7 @@ export const syncBothMenus = (userId: string, menuUpdated: MenuType) => {
   setDoc(cachette, nourriture)
 }
 
-export const getMenu = async (idUser: string) => {
+export const getMenu = async (idUser: string): Promise<MenuType | undefined> => {
   //const docRef = doc(CHEMIN)
   const docRef = doc(db, "users", idUser)
 
