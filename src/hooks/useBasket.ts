@@ -1,8 +1,7 @@
 import { useState } from "react"
-// import { fakeBasket } from "../fakeData/fakeBasket"
 import { deepClone, findObjectById, findIndexById, removeObjectById } from "../utils/array"
 import { setLocalStorage } from "../utils/window"
-import { BasketProductType, BasketType } from "../types/commons"
+import { BasketType } from "../types/commons"
 
 export const useBasket = () => {
   const [basket, setBasket] = useState<BasketType>([])
