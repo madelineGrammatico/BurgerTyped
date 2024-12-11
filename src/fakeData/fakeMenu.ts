@@ -1,6 +1,8 @@
-const EMPTY = []
+import { MenuType } from "../types/commons"
 
-const SMALL = [
+const EMPTY: MenuType = []
+
+const SMALL: MenuType = [
   {
     id: "1",
     imageSource: "/images/burger1.png",
@@ -21,7 +23,7 @@ const SMALL = [
   },
 ]
 
-const MEDIUM = [
+const MEDIUM: MenuType = [
   {
     id: "1",
     imageSource: "/images/burger-bacon-egg.png",
@@ -69,7 +71,7 @@ const MEDIUM = [
   },
 ]
 
-const LARGE = [
+const LARGE: MenuType = [
   {
     id: "1",
     imageSource: "/images/burger-bacon-egg.png",

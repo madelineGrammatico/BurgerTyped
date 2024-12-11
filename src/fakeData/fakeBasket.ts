@@ -1,8 +1,9 @@
 import { EMPTY_PRODUCT } from "../enums/product"
+import { ProducBasketWithDataType} from "../types/commons"
 
-export const EMPTY = []
+export const EMPTY: ProducBasketWithDataType[] = []
 
-export const SMALL = [
+export const SMALL: Omit<ProducBasketWithDataType, "price">[] = [
   {
     id: "1",
     title: "Burger Meal",
@@ -11,7 +12,7 @@ export const SMALL = [
   },
 ]
 
-export const MEDIUM = [
+export const MEDIUM: ProducBasketWithDataType[] = [
   {
     id: "1",
     imageSource: "images/burger1.png",
@@ -42,7 +43,7 @@ export const MEDIUM = [
   },
 ]
 
-export const LARGE = [
+export const LARGE: ProducBasketWithDataType[] = [
   {
     id: "1",
     imageSource: "/images/fries3.png",
@@ -135,7 +136,7 @@ export const LARGE = [
   },
 ]
 
-export const LARGE_WEIRD = [
+export const LARGE_WEIRD: ProducBasketWithDataType[] = [
   {
     ...EMPTY_PRODUCT,
     quantity: 1,
