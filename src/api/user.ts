@@ -2,7 +2,7 @@ import { doc, getDoc, setDoc } from "firebase/firestore"
 import { db } from "./firebase-config"
 import { fakeMenu } from "../fakeData/fakeMenu"
 
-export const getUser = async (idUser) => {
+export const getUser = async (idUser: string) => {
   //const docRef = doc(CHEMIN)
   const docRef = doc(db, "users", idUser)
 
@@ -18,7 +18,7 @@ export const getUser = async (idUser) => {
 // 2e cas : résultat positif de la promesse achevée => résultat positif (fulfilled)
 // 3e cas : résultat négatif de la promesse achevée => résultat négatif (rejected)
 
-export const createUser = async (userId) => {
+export const createUser = async (userId: string) => {
   // CACHETTE
   const docRef = doc(db, "users", userId)
 
@@ -33,7 +33,7 @@ export const createUser = async (userId) => {
   return newUserToCreate
 }
 
-export const authenticateUser = async (userId) => {
+export const authenticateUser = async (userId: string) => {
   const existingUser = await getUser(userId)
 
   if (!existingUser) {
