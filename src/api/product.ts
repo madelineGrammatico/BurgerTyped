@@ -13,7 +13,6 @@ export const syncBothMenus = (userId: string, menuUpdated: MenuType) => {
 }
 
 export const getMenu = async (idUser: string): Promise<MenuType | undefined> => {
-  //const docRef = doc(CHEMIN)
   const docRef = doc(db, "users", idUser)
 
   const docSnapshot = await getDoc(docRef)

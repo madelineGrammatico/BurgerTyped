@@ -4,7 +4,6 @@ import { fakeMenu } from "../fakeData/fakeMenu"
 import { UserType } from "../types/commons"
 
 export const getUser = async (idUser: string) => {
-  //const docRef = doc(CHEMIN)
   const docRef = doc(db, "users", idUser)
 
   const docSnapshot = await getDoc(docRef)
