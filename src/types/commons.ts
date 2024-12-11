@@ -9,8 +9,13 @@ export type ProductType = {
     imageSource: string,
     title: string,
     price: number,
-    quantity: number,
+    quantity?: number,
     isAvailable: boolean,
     isPublicised: boolean,
 }
 export type MenuType = ProductType[]
+
+export type ProducBasketWithDataType = 
+    BasketProductType 
+    & Omit<ProductType, "isAvailable" | "isPublicised"> 
+    & Partial<Pick<ProductType, "isAvailable" | "isPublicised">>
