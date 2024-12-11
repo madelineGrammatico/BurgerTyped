@@ -1,6 +1,7 @@
 import { doc, getDoc, setDoc } from "firebase/firestore"
 import { db } from "./firebase-config"
 import { fakeMenu } from "../fakeData/fakeMenu"
+import { UserType } from "../types/commons"
 
 export const getUser = async (idUser: string) => {
   //const docRef = doc(CHEMIN)
@@ -13,31 +14,23 @@ export const getUser = async (idUser: string) => {
   }
 }
 
-// Quand une fonction retourne une promesse, cette promesse ne peut avoir que 3 valeurs possibles :
-// 1er cas : promesse en cours d'achèvement => Promise (pending)
-// 2e cas : résultat positif de la promesse achevée => résultat positif (fulfilled)
-// 3e cas : résultat négatif de la promesse achevée => résultat négatif (rejected)
-
-export const createUser = async (userId: string) => {
-  // CACHETTE
+export const createUser = async (userId: string): Promise<UserType> => {
   const docRef = doc(db, "users", userId)
 
-  // NOURRITURE
   const newUserToCreate = {
     username: userId,
     menu: fakeMenu.SMALL,
   }
 
-  //setDoc(CACHETTE, NOURRITURE)
   await setDoc(docRef, newUserToCreate)
-  return newUserToCreate
+  return newUserToCreate as UserType
 }
 
-export const authenticateUser = async (userId: string) => {
+export const authenticateUser = async (userId: string): Promise<UserType> => {
   const existingUser = await getUser(userId)
 
   if (!existingUser) {
     return await createUser(userId)
   }
-  return existingUser
+  return existingUser as UserType
 }
