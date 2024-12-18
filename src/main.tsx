@@ -4,6 +4,7 @@ import "./index.css"
 import { ThemeProvider } from "styled-components"
 import { theme } from "./theme"
 import { BrowserRouter } from "react-router-dom"
+import { OrderContextProvider } from "./context/OrderContext"
 
 const rootElement = document.getElementById("root")
 
@@ -11,7 +12,9 @@ if (rootElement) {
   createRoot(rootElement).render(
     <BrowserRouter>
       <ThemeProvider theme={theme}>
-        <App />
+        <OrderContextProvider>
+          <App />
+        </OrderContextProvider>
       </ThemeProvider>
     </BrowserRouter>
   )
