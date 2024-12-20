@@ -1,10 +1,10 @@
 import { useState } from "react"
-import { fakeMenu } from "../fakeData/fakeMenu"
-import { deepClone } from "../utils/array"
+import { fakeMenu } from "@/fakeData/fakeMenu"
+import { deepClone } from "@/utils/array"
 //@ts-ignore
 import { syncBothMenus } from "../api/product"
 
-import { MenuType, ProductType } from "../types/commons"
+import { MenuType, ProductType } from "@/types/commons"
 
 export const useMenu = () => {
   const [menu, setMenu] = useState<MenuType |undefined>(undefined)
