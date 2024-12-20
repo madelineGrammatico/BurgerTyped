@@ -1,4 +1,4 @@
-import { ProductType } from "../types/commons"
+import { ProductType } from "@/types/commons"
 
 //readonly nesting 
 type DeepReadonly<T> = {
