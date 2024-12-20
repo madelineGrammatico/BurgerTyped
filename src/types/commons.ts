@@ -19,3 +19,8 @@ export type ProducBasketWithDataType =
     BasketProductType 
     & Omit<ProductType, "isAvailable" | "isPublicised"> 
     & Partial<Pick<ProductType, "isAvailable" | "isPublicised">>
+
+export type UserType = {
+    username:  string, 
+    menu: MenuType
+}
