@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { deepClone, findObjectById, findIndexById, removeObjectById } from "../utils/array"
-import { setLocalStorage } from "../utils/window"
-import { BasketType } from "../types/commons"
+import { setLocalStorage } from "@/utils/window"
+import { BasketType } from "@/types/commons"
 
 export const useBasket = () => {
   const [basket, setBasket] = useState<BasketType>([])

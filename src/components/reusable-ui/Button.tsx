@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components"
-import { theme } from "../../theme/theme"
-import { ButtonStyledInterface, PropsButton } from "../../types/components"
+import { theme } from "@/theme/theme"
+import { ButtonStyledInterface, PropsButton } from "@/types/components"
 
 export default function Button({ 
   label, 

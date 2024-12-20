@@ -1,8 +1,8 @@
 import React from "react"
 import styled, { css } from "styled-components"
-import { theme } from "../../theme/theme"
-import { TextInputStyledInterface } from "../../types/components"
-import { PropsTextInput } from "../../types/components"
+import { theme } from "@/theme/theme"
+import { TextInputStyledInterface } from "@/types/components"
+import { PropsTextInput } from "@/types/components"
   
 
 const TextInput = React.forwardRef<HTMLInputElement, PropsTextInput>(
