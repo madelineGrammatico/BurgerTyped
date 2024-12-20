@@ -1,8 +1,8 @@
 import { createContext, PropsWithChildren, useContext, useRef, useState } from "react"
-import { useMenu } from "../hooks/useMenu"
-import { useBasket } from "../hooks/useBasket"
-import { findObjectById } from "../utils/array"
-import { EMPTY_PRODUCT } from "../enums/product"
+import { useMenu } from "@/hooks/useMenu"
+import { useBasket } from "@/hooks/useBasket"
+import { findObjectById } from "@/utils/array"
+import { EMPTY_PRODUCT } from "@/enums/product"
 import { ADMIN_TAB_LABEL, BasketType, MenuType, ProductType } from "../types/commons"
 
 type OrderContextType = {
