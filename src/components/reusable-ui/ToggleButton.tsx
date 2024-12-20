@@ -1,6 +1,6 @@
 import styled from "styled-components"
-import { theme } from "../../theme/theme"
-import { ToggleButtonType } from "../../types/components"
+import { theme } from "@/theme/theme"
+import { ToggleButtonType } from "@/types/components"
 
 export default function ToggleButton({
   isChecked,

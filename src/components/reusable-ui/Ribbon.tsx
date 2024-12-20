@@ -1,6 +1,6 @@
 import styled from "styled-components"
-import { theme } from "../../theme/theme"
-import { PropsRibbon } from "../../types/components"
+import { theme } from "@/theme/theme"
+import { PropsRibbon } from "@/types/components"
 
 export default function Ribbon({ label = "new", className }: PropsRibbon ) {
   return (
