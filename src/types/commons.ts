@@ -24,3 +24,10 @@ export type UserType = {
     username:  string, 
     menu: MenuType
 }
+
+export enum ADMIN_TAB_LABEL {
+    EDIT = "edit",
+    ADD = "add",
+    CHEVRON = "chevron",
+  }
+  
