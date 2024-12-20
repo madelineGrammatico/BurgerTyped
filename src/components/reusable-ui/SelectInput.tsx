@@ -1,7 +1,7 @@
 
 import styled from "styled-components"
-import { theme } from "../../theme/theme"
-import { PropsSelectInput, SelectInputStyledInterface} from "../../types/components"
+import { theme } from "@/theme/theme"
+import { PropsSelectInput, SelectInputStyledInterface} from "@/types/components"
 
 export default function SelectInput({
   options,

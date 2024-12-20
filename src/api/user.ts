@@ -1,7 +1,7 @@
 import { doc, getDoc, setDoc } from "firebase/firestore"
 import { db } from "./firebase-config"
-import { fakeMenu } from "../fakeData/fakeMenu"
-import { UserType } from "../types/commons"
+import { fakeMenu } from "@/fakeData/fakeMenu"
+import { UserType } from "@/types/commons"
 
 export const getUser = async (idUser: string) => {
   const docRef = doc(db, "users", idUser)
