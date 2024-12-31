@@ -52,6 +52,7 @@ const colors = {
     },
     family: {
       stylish: '"Amatic SC", cursive',
+      openSans: '"Open Sans", sans-serif'
     },
   }
   const gridUnit = 8
