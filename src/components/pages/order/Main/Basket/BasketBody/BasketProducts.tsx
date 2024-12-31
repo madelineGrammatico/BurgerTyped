@@ -1,49 +1,57 @@
 import styled from "styled-components"
 import { BASKET_MESSAGE, IMAGE_COMING_SOON } from "../../../../../../enums/product"
 import BasketCard from "./BasketCard"
-import { useOrderContext } from "../../../../../../context/OrderContext"
-import { findObjectById } from "../../../../../../utils/array"
+import { useOrderContext } from "@/context/OrderContext" 
+import { findObjectById } from "@/utils/array" 
+//@ts-ignore
 import { checkIfProductIsClicked } from "../../MainRightSide/Menu/helper"
 import { TransitionGroup, CSSTransition } from "react-transition-group"
-import { basketAnimation } from "../../../../../../theme/animations"
-import { formatPrice } from "../../../../../../utils/maths"
-import { convertStringToBoolean } from "../../../../../../utils/string"
+import { basketAnimation } from "@/theme/animations" 
+import { formatPrice } from "@/utils/maths"
+import { convertStringToBoolean } from "@/utils/string" 
 import { useParams } from "react-router-dom"
+import { MenuType } from "@/types/commons"
 
 export default function BasketProducts() {
   const { basket, isModeAdmin, handleDeleteBasketProduct, menu, handleProductSelected, productSelected } =
     useOrderContext()
     const { username } = useParams()
 
-  const handleOnDelete = (event, id) => {
+  const handleOnDelete = (
+    event: React.MouseEvent<HTMLDivElement, MouseEvent>, 
+    id: string
+  ) => {
     event.stopPropagation()
+    if (!username) return
     handleDeleteBasketProduct(id, username)
   }
 
   return (
     <TransitionGroup component={BasketProductsStyled} className={"transition-group"}>
       {basket.map((basketProduct) => {
-        const menuProduct = findObjectById(basketProduct.id, menu)
+        const menuProduct = findObjectById(basketProduct.id, menu as MenuType)
         return (
           <CSSTransition appear={true} classNames={"animation-basket"} key={basketProduct.id} timeout={300}>
-            <div className="card-container">
-              <BasketCard
-                {...menuProduct}
-                imageSource={menuProduct.imageSource ? menuProduct.imageSource : IMAGE_COMING_SOON}
-                quantity={basketProduct.quantity}
-                onDelete={(event) => handleOnDelete(event, basketProduct.id)}
-                isClickable={isModeAdmin}
-                onClick={isModeAdmin ? () => handleProductSelected(basketProduct.id) : null}
-                isSelected={checkIfProductIsClicked(basketProduct.id, productSelected.id)}
-                className={"card"}
-                price={
-                  convertStringToBoolean(menuProduct.isAvailable)
-                    ? formatPrice(menuProduct.price)
-                    : BASKET_MESSAGE.NOT_AVAILABLE
-                }
-                isPublicised={convertStringToBoolean(menuProduct.isPublicised)}
-              />
-            </div>
+            <>
+              {menuProduct && <div className="card-container">
+                <BasketCard
+                  {...menuProduct}
+                  imageSource={menuProduct.imageSource ? menuProduct.imageSource : IMAGE_COMING_SOON}
+                  quantity={basketProduct.quantity}
+                  onDelete={(event) => handleOnDelete(event, basketProduct.id)}
+                  isClickable={isModeAdmin}
+                  onClick={isModeAdmin ? () => handleProductSelected(basketProduct.id) : undefined}
+                  isSelected={checkIfProductIsClicked(basketProduct.id, productSelected.id)}
+                  className={"card"}
+                  price={
+                    convertStringToBoolean(menuProduct.isAvailable)
+                      ? formatPrice(menuProduct.price)
+                      : BASKET_MESSAGE.NOT_AVAILABLE
+                  }
+                  isPublicised={convertStringToBoolean(menuProduct.isPublicised)}
+                />
+              </div>}
+            </>
           </CSSTransition>
         )
       })}
