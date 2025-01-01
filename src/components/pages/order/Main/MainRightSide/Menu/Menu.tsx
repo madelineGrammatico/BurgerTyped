@@ -1,17 +1,17 @@
 import styled from "styled-components"
-import { useOrderContext } from "../../../../../../context/OrderContext"
-import { theme } from "../../../../../../theme"
-import { formatPrice } from "../../../../../../utils/maths"
-import Card from "../../../../../reusable-ui/Card"
+import { useOrderContext } from "@/context/OrderContext" 
+import { theme } from "@/theme/theme" 
+import { formatPrice } from "@/utils/maths" 
+import Card from "@/components/reusable-ui/Card" 
 import EmptyMenuAdmin from "./EmptyMenuAdmin"
 import EmptyMenuClient from "./EmptyMenuClient"
 import { checkIfProductIsClicked } from "./helper"
 import { EMPTY_PRODUCT, IMAGE_COMING_SOON, IMAGE_NO_STOCK } from "../../../../../../enums/product"
-import { isEmpty } from "../../../../../../utils/array"
+import { isEmpty } from "@/utils/array" 
 import Loader from "./Loader"
 import { CSSTransition, TransitionGroup } from "react-transition-group"
-import { menuAnimation } from "../../../../../../theme/animations"
-import { convertStringToBoolean } from "../../../../../../utils/string"
+import { menuAnimation } from "@/theme/animations" 
+import { convertStringToBoolean } from "@/utils/string" 
 import RibbonAnimated, { ribbonAnimation } from "./RibbonAnimated"
 import { useParams } from "react-router-dom"
 
@@ -32,15 +32,23 @@ export default function Menu() {
   // state
 
   // comportements (gestionnaires d'événement ou "event handlers")
-  const handleCardDelete = (event, idProductToDelete) => {
+  const handleCardDelete = (
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>, 
+    idProductToDelete: string
+  ) => {
     event.stopPropagation()
+    if (!username) return 
     handleDelete(idProductToDelete, username)
     handleDeleteBasketProduct(idProductToDelete, username)
     idProductToDelete === productSelected.id && setProductSelected(EMPTY_PRODUCT)
   }
 
-  const handleAddButton = (event, idProductToAdd) => {
+  const handleAddButton = (
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
+    idProductToAdd: string
+  ) => {
     event.stopPropagation()
+    if (!username) return 
     handleAddToBasket(idProductToAdd, username)
   }
 
@@ -51,6 +59,7 @@ export default function Menu() {
 
   if (isEmpty(menu)) {
     if (!isModeAdmin) return <EmptyMenuClient />
+    if (!username) return 
     return <EmptyMenuAdmin onReset={() => resetMenu(username)} />
   }
 
@@ -67,7 +76,7 @@ export default function Menu() {
                 leftDescription={formatPrice(price)}
                 hasDeleteButton={isModeAdmin}
                 onDelete={(event) => handleCardDelete(event, id)}
-                onClick={isModeAdmin ? () => handleProductSelected(id) : null}
+                onClick={isModeAdmin ? () => handleProductSelected(id) : undefined}
                 isHoverable={isModeAdmin}
                 isSelected={checkIfProductIsClicked(id, productSelected.id)}
                 onAdd={(event) => handleAddButton(event, id)}
