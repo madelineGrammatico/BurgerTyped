@@ -3,8 +3,7 @@ import { BASKET_MESSAGE, IMAGE_COMING_SOON } from "../../../../../../enums/produ
 import BasketCard from "./BasketCard"
 import { useOrderContext } from "@/context/OrderContext" 
 import { findObjectById } from "@/utils/array" 
-//@ts-ignore
-import { checkIfProductIsClicked } from "../../MainRightSide/Menu/helper"
+import { checkIfProductIsClicked } from "../../MainRightSide/Menu/helper" 
 import { TransitionGroup, CSSTransition } from "react-transition-group"
 import { basketAnimation } from "@/theme/animations" 
 import { formatPrice } from "@/utils/maths"
