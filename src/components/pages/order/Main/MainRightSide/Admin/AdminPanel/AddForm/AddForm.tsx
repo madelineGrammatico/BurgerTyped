@@ -13,8 +13,9 @@ export default function AddForm() {
   const { username } = useParams()
   
   // comportements
-  const handleSubmit = (event) => {
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
+    if (!username) return
     const newProductToAdd = {
       ...newProduct,
       id: crypto.randomUUID(),
@@ -26,7 +27,7 @@ export default function AddForm() {
     displaySuccessMessage()
   }
 
-  const handleChange = (event) => {
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement >) => {
     const { name, value } = event.target
     setNewProduct({ ...newProduct, [name]: value })
   }
