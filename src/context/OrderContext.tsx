@@ -22,7 +22,7 @@ type OrderContextType = {
   productSelected : ProductType,
   setProductSelected: React.Dispatch<React.SetStateAction<ProductType>>,
   handleEdit:  (productBeingEdited: ProductType, username: string) => void,
-  titleEditRef: React.MutableRefObject<HTMLInputElement | undefined>,
+  titleEditRef: React.MutableRefObject<HTMLInputElement | null>,
   basket: BasketType,
   setBasket:React.Dispatch<React.SetStateAction<BasketType>>,
   handleAddToBasket: (idProductToAdd: string, username: string) => void,
@@ -39,7 +39,7 @@ export const OrderContextProvider = ({ children }: PropsWithChildren) => {
   const [currentTabSelected, setCurrentTabSelected] = useState<ADMIN_TAB_LABEL>(ADMIN_TAB_LABEL.ADD)
   const [newProduct, setNewProduct] = useState<ProductType>(EMPTY_PRODUCT)
   const [productSelected, setProductSelected] = useState<ProductType>(EMPTY_PRODUCT)
-  const titleEditRef = useRef<HTMLInputElement>()
+  const titleEditRef = useRef<HTMLInputElement>(null)
   const { menu, setMenu, handleAdd, handleDelete, handleEdit, resetMenu } = useMenu()
   const { basket, setBasket, handleAddToBasket, handleDeleteBasketProduct } = useBasket()
 
