@@ -1,5 +1,5 @@
 import { ComponentProps, ComponentPropsWithoutRef, ComponentPropsWithRef, ReactNode } from "react"
-import { IconType } from "react-icons"
+import { ADMIN_TAB_LABEL } from "./commons"
 
 //Reusable-ui
 //TextInput 
@@ -25,6 +25,7 @@ export type ToggleButtonType = {
 export type TabType = {
     onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void, 
     label?: string, 
+    index: ADMIN_TAB_LABEL | "chevron",
     className?: string,
     Icon: JSX.Element
 } 
@@ -42,7 +43,7 @@ type Option = {
 }
 export type PropsSelectInput = {
     options: Option[],
-    Icon?: ReactNode, 
+    Icon?: JSX.Element, 
 } & ComponentPropsWithoutRef<"select">
 
   export interface SelectInputStyledInterface {

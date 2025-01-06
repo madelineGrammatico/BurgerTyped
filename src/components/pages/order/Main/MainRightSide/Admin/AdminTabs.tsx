@@ -1,22 +1,24 @@
 import styled from "styled-components"
-import Tab from "../../../../../reusable-ui/Tab"
+import Tab from "@/components/reusable-ui/Tab" 
 import { FiChevronDown, FiChevronUp } from "react-icons/fi"
-import { theme } from "../../../../../../theme"
-import { useOrderContext } from "../../../../../../context/OrderContext"
+import { theme } from "@/theme/theme" 
+import { useOrderContext } from "@/context/OrderContext" 
 import { getTabsConfig } from "./tabsConfig"
+import { ADMIN_TAB_LABEL } from "@/types/commons"
+import { EMPTY_PRODUCT } from "@/enums/product"
 
 export default function AdminTabs() {
   // state
-  const { isCollapsed, setIsCollapsed, currentTabSelected, setCurrentTabSelected } =
+  const { isCollapsed, setIsCollapsed, currentTabSelected, setCurrentTabSelected, productSelected} =
     useOrderContext()
 
   // comportements
-  const selectTab = (tabSelected) => {
+  const selectTab = (tabSelected: ADMIN_TAB_LABEL) => {
     setIsCollapsed(false) // tu m'ouvres le pannel
     setCurrentTabSelected(tabSelected)
   }
-
-  const tabs = getTabsConfig()
+  const isProductSelected = productSelected !== EMPTY_PRODUCT;
+  const tabs = getTabsConfig(isProductSelected)
 
   // affichage
   return (
