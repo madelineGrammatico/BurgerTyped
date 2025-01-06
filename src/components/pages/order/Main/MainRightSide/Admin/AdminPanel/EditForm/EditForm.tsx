@@ -1,9 +1,9 @@
 import { useState } from "react"
-import { useOrderContext } from "../../../../../../../../context/OrderContext"
-import Form from "../Form/Form"
+import { useOrderContext } from "@/context/OrderContext" 
+import Form from "../Form/Form" 
 import EditInfoMessage from "./EditInfoMessage"
 import SavingMessage from "./SavingMessage"
-import { useSuccessMessage } from "../../../../../../../../hooks/useSuccessMessage"
+import { useSuccessMessage } from "@/hooks/useSuccessMessage" 
 import { useParams } from "react-router-dom"
 
 export default function EditForm() {
@@ -11,13 +11,15 @@ export default function EditForm() {
   const {  productSelected, setProductSelected, handleEdit, titleEditRef } =
     useOrderContext()
   const { username } = useParams()
-  const [valueOnFocus, setvalueOnFocus] = useState()
+  const [valueOnFocus, setvalueOnFocus] = useState<string>()
   const { isSubmitted: isSaved, displaySuccessMessage } = useSuccessMessage()
 
   // comportements (gestionnaires d'événement ou "event handlers")
-  const handleChange = (event) => {
+  const handleChange = (
+    event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
     const { name, value } = event.target
-
+    if(!username) return
     const productBeingUpdated = {
       ...productSelected,
       [name]: value,
@@ -27,12 +29,12 @@ export default function EditForm() {
     handleEdit(productBeingUpdated, username) // cette ligne update le menu
   }
 
-  const handleOnFocus = (event) => {
+  const handleOnFocus = (event: React.FocusEvent<HTMLInputElement | HTMLSelectElement>) => {
     const valueOnFocus = event.target.value
     setvalueOnFocus(valueOnFocus)
   }
 
-  const handleOnBlur = (event) => {
+  const handleOnBlur = (event: React.FocusEvent<HTMLInputElement | HTMLSelectElement>) => {
     const valueOnBlur = event.target.value
     if (valueOnFocus !== valueOnBlur) {
       console.log("ça a changé !!")
