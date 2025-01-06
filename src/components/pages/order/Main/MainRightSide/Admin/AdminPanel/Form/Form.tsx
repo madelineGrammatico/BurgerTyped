@@ -1,9 +1,17 @@
-import React from "react"
+import React, { PropsWithChildren } from "react"
 import styled from "styled-components"
 import ImagePreview from "./ImagePreview"
 import { Inputs } from "./Inputs"
+import { ProductType } from "@/types/commons"
 
-const Form = React.forwardRef(({ product, onSubmit, children, onChange, onFocus, onBlur }, ref) => {
+type FormProps = { 
+  product: ProductType, 
+  onSubmit?: React.FormEventHandler<HTMLFormElement>, 
+  onChange?:React.ChangeEventHandler<HTMLInputElement| HTMLSelectElement>, 
+  onFocus?: React.FocusEventHandler<HTMLInputElement| HTMLSelectElement>, 
+  onBlur?: React.FocusEventHandler<HTMLInputElement| HTMLSelectElement>
+} & PropsWithChildren
+const Form = React.forwardRef<HTMLInputElement, FormProps>(({ product, onSubmit, children, onChange, onFocus, onBlur }, ref) => {
   // state (vide)
 
   // comportements (vide)
