@@ -1,9 +1,7 @@
 import { useEffect } from "react"
 import styled from "styled-components"
 import { theme } from "@/theme/theme" 
-//@ts-ignore
 import Main from "./Main/Main"
-//@ts-ignore
 import Navbar from "./Navbar/Navbar"
 
 import { initialiseUserSession } from "./helpers/initialiseUserSession"
