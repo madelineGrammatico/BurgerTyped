@@ -38,12 +38,12 @@ export type StickerType = {
 
 //selectInput
 type Option = {
-    optionValue?: string | number | readonly string[], 
+    optionValue?: string | readonly string[] | number | undefined, 
     label: string,
 }
 export type PropsSelectInput = {
     options: Option[],
-    Icon?: JSX.Element, 
+    Icon?: JSX.Element,
 } & ComponentPropsWithoutRef<"select">
 
   export interface SelectInputStyledInterface {
