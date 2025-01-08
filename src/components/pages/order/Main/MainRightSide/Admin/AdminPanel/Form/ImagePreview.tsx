@@ -1,9 +1,9 @@
-import React from "react"
 import styled from "styled-components"
-import { theme } from "../../../../../../../../theme"
-import { fadeIn } from "../../../../../../../../theme/animations"
+import { theme } from "@/theme/theme" 
+import { fadeIn } from "@/theme/animations" 
 
-export default function ImagePreview({ imageSource, title }) {
+export default function ImagePreview({ imageSource, title } 
+  : { imageSource: string, title: string }) {
   return (
     <ImagePreviewStyled>
       {imageSource ? (
