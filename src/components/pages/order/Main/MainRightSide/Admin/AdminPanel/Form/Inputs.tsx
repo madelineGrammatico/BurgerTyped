@@ -1,10 +1,17 @@
 import React from "react"
-import TextInput from "../../../../../../../reusable-ui/TextInput"
-import SelectInput from "../../../../../../../reusable-ui/SelectInput"
+import TextInput from "@/components/reusable-ui/TextInput" 
+import SelectInput from "@/components/reusable-ui/SelectInput"
 import styled from "styled-components"
 import { getInputTextsConfig, getSelectInputConfig } from "./inputConfig"
+import { ProductType } from "@/types/commons"
 
-export const Inputs = React.forwardRef(({ product, onChange, onFocus, onBlur }, ref) => {
+type InputsProps = { 
+  product: ProductType, 
+  onChange?:React.ChangeEventHandler<HTMLInputElement| HTMLSelectElement>, 
+  onFocus?: React.FocusEventHandler<HTMLInputElement| HTMLSelectElement>, 
+  onBlur?: React.FocusEventHandler<HTMLInputElement| HTMLSelectElement>
+}
+export const Inputs = React.forwardRef<HTMLInputElement , InputsProps>(({ product, onChange, onFocus, onBlur }, ref) => {
   const inputTexts = getInputTextsConfig(product)
   const inputSelects = getSelectInputConfig(product)
 
@@ -19,7 +26,7 @@ export const Inputs = React.forwardRef(({ product, onChange, onFocus, onBlur }, 
           version="minimalist"
           onFocus={onFocus}
           onBlur={onBlur}
-          ref={ref && input.name === "title" ? ref : null}
+          ref={ref !== undefined && input.name === "title" ? ref : null}
         />
       ))}
       {inputSelects.map((inputSelect) => (
