@@ -5,11 +5,9 @@ import { BasketType } from "@/types/commons"
 
 export const useBasket = () => {
   const [basket, setBasket] = useState<BasketType>([])
-  console.log("basket", basket)
   const handleAddToBasket = (idProductToAdd: string, username: string) => {
     const basketCopy = deepClone(basket)
     const productAlreadyInBasket = findObjectById(idProductToAdd, basketCopy)
-
     if (productAlreadyInBasket) {
       incrementProductAlreadyInBasket(idProductToAdd, basketCopy, username)
       return
@@ -20,10 +18,12 @@ export const useBasket = () => {
 
   const incrementProductAlreadyInBasket = (idProductToAdd: string, basketCopy: BasketType, username: string) => {
     const indexOfBasketProductToIncrement = findIndexById(idProductToAdd, basketCopy)
-    if (!indexOfBasketProductToIncrement) return
-    basketCopy[indexOfBasketProductToIncrement].quantity += 1
-    setBasket(basketCopy)
-    setLocalStorage(username, basketCopy)
+    if (indexOfBasketProductToIncrement >= 0) {
+      basketCopy[indexOfBasketProductToIncrement].quantity += 1
+      setBasket(basketCopy)
+      setLocalStorage(username, basketCopy)
+    }
+    return
   }
 
   const createNewBasketProduct = (idProductToAdd: string, basketCopy: BasketType, setBasket: React.Dispatch<React.SetStateAction<BasketType>>, username: string) => {
